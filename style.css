@@ -1,6 +1,4 @@
-/* ==========================
-   RESET Y BASE
-   ========================== */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -13,9 +11,7 @@ body {
     color: #ffffff;
 }
 
-/* ==========================
-   HEADER Y BUSCADOR
-   ========================== */
+
 header {
     background-color: rgb(9, 9, 109);
     height: 250px;
@@ -49,9 +45,7 @@ header input:focus {
     box-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
 }
 
-/* ==========================
-   TITULO Y CONTENEDOR GRID
-   ========================== */
+
 h1 {
     text-align: center;
     margin: 40px 0 20px;
@@ -59,44 +53,44 @@ h1 {
     letter-spacing: 1px;
 }
 
-.pelis {
-    background-color: rgb(9, 9, 109);
-    width: 90%;
-    min-height: 800px;
-    margin: 20px auto 30px;
-    display: grid;
-    /* FORZAMOS LAS 5 COLUMNAS DE ANCHO IGUAL */
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 25px;
-    padding: 30px;
-    border-radius: 12px;
-}
+.pelis{
+    background-color: rgb(19, 19, 74);
+width: 90%;
+min-height: 900px;
+margin: 20px auto 30px ;
+padding: 30px;
+display: grid;
+grid-template-columns: repeat(5,minmax(0,1fr));
+gap: 30px;
+border-radius:30px ;
 
-/* ==========================
-   TARJETAS DE PELÍCULA (.pelicula)
-   ========================== */
-.pelis .pelicula {
-    background-color: #1f2833;
-    border-radius: 10px;
-    overflow: hidden;
+
+
+}
+.pelis .pelicula{
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    width: 100%; /* Se ajusta a su celda del grid */
-}
+    flex-direction: column;
+background-color: #1f2833;
+border-radius: 10px;
+transition: transform 0.3s ease,box-shadow 0.3s ease;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+width: 100%;
 
+
+
+}
 .pelis .pelicula:hover {
     transform: translateY(-8px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
 }
 
 .poster-wrapper {
-    width: 100%;
-    height: 320px;
-    overflow: hidden;
-    background-color: #0b0c10;
+   width: 100%;
+   height: 300px;
+   background-color:#000000 ;
+   overflow: hidden;
 }
 
 .poster-wrapper img {
@@ -127,7 +121,7 @@ h1 {
     color: #f1c40f;
 }
 
-/* MENSAJES DE ESTADO (Cargando / Sin resultados) */
+
 .mensaje {
     grid-column: 1 / -1;
     text-align: center;
@@ -140,9 +134,7 @@ h1 {
     color: #ff6b6b;
 }
 
-/* ==========================
-   PAGINACIÓN
-   ========================== */
+
 .paginacion {
     display: flex;
     justify-content: center;
@@ -181,9 +173,7 @@ h1 {
     color: #ffffff;
 }
 
-/* ==========================
-   RESPONSIVIDAD
-   ========================== */
+
 @media (max-width: 1200px) {
     .pelis {
         grid-template-columns: repeat(4, minmax(0, 1fr));

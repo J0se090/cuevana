@@ -1,7 +1,5 @@
 
- // ==========================
- // REFERENCIAS AL DOM
- // ==========================
+
 const peliculasContainer = document.querySelector(".pelis");
 const inputBuscador = document.getElementById("buscador");
 const btnAnterior = document.getElementById("btn-anterior");
@@ -10,17 +8,13 @@ const numPagina = document.getElementById("num-pagina");
 
 const API_URL = "https://ghibliapi.dev/films";
 
-// ==========================
-// ESTADO GLOBAL
-// ==========================
+
 let todasLasPeliculas = [];
 let peliculasFiltradas = [];
 let paginaActual = 1;
 const limitePorPagina = 10;
 
-// ==========================
-// 1. OBTENER PELÍCULAS DE LA API
-// ==========================
+
 async function obtenerPeliculas() {
   peliculasContainer.innerHTML = `
     <div class="mensaje">Cargando películas...</div>
@@ -54,9 +48,6 @@ async function obtenerPeliculas() {
   }
 }
 
-// ==========================
-// 2. MOSTRAR PELÍCULAS
-// ==========================
 function mostrarPeliculas(pelis) {
   peliculasContainer.innerHTML = "";
 
@@ -84,11 +75,7 @@ function mostrarPeliculas(pelis) {
 
     tarjeta.innerHTML = `
       <div class="poster-wrapper">
-        <img
-          src="${poster}"
-          alt="${titulo}"
-          title="${titulo}"
-          loading="lazy"
+        <img src="${poster}" alt="${titulo}" title="${titulo}" loading="lazy"
         >
       </div>
 
@@ -106,15 +93,13 @@ function mostrarPeliculas(pelis) {
   peliculasContainer.appendChild(fragmento);
 }
 
-// ==========================
-// 3. PAGINACIÓN
-// ==========================
+
 function renderizarPaginado() {
   const totalPaginas = Math.ceil(
     peliculasFiltradas.length / limitePorPagina
   ) || 1;
 
-  // Evitar que la página actual quede fuera del rango
+  
   if (paginaActual > totalPaginas) {
     paginaActual = totalPaginas;
   }
@@ -133,9 +118,6 @@ function renderizarPaginado() {
   btnSiguiente.disabled = paginaActual >= totalPaginas;
 }
 
-// ==========================
-// 4. BOTÓN ANTERIOR
-// ==========================
 btnAnterior.addEventListener("click", () => {
   if (paginaActual > 1) {
     paginaActual--;
@@ -148,9 +130,7 @@ btnAnterior.addEventListener("click", () => {
   }
 });
 
-// ==========================
-// 5. BOTÓN SIGUIENTE
-// ==========================
+
 btnSiguiente.addEventListener("click", () => {
   const totalPaginas = Math.ceil(
     peliculasFiltradas.length / limitePorPagina
@@ -167,9 +147,7 @@ btnSiguiente.addEventListener("click", () => {
   }
 });
 
-// ==========================
-// 6. BUSCADOR EN TIEMPO REAL
-// ==========================
+
 inputBuscador.addEventListener("input", () => {
 const texto=inputBuscador.value.toLowerCase().trim();
 if(texto===""){
@@ -186,16 +164,12 @@ return title.includes(texto)||titleOriginal.includes(texto)
 })
 
 
-
-
 }
-  // Volver a la primera página al buscar
+ 
   paginaActual = 1;
 
   renderizarPaginado();
 });
 
-// ==========================
-// 7. INICIAR LA APLICACIÓN
-// ==========================
+
 obtenerPeliculas();

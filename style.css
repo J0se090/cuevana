@@ -1,0 +1,223 @@
+/* ==========================
+   RESET Y BASE
+   ========================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0b0c10;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+}
+
+/* ==========================
+   HEADER Y BUSCADOR
+   ========================== */
+header {
+    background-color: rgb(9, 9, 109);
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+
+header img {
+    height: 180px;
+    width: auto;
+    max-width: 400px;
+    object-fit: contain;
+}
+
+header input {
+    height: 55px;
+    width: 450px;
+    border-radius: 50px;
+    border: 2px solid transparent;
+    font-size: 18px;
+    text-align: center;
+    outline: none;
+    transition: all 0.3s ease;
+    padding: 0 20px;
+}
+
+header input:focus {
+    border-color: #66fcf1;
+    box-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+}
+
+/* ==========================
+   TITULO Y CONTENEDOR GRID
+   ========================== */
+h1 {
+    text-align: center;
+    margin: 40px 0 20px;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+}
+
+.pelis {
+    background-color: rgb(9, 9, 109);
+    width: 90%;
+    min-height: 800px;
+    margin: 20px auto 30px;
+    display: grid;
+    /* FORZAMOS LAS 5 COLUMNAS DE ANCHO IGUAL */
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 25px;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+/* ==========================
+   TARJETAS DE PELÍCULA (.pelicula)
+   ========================== */
+.pelis .pelicula {
+    background-color: #1f2833;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%; /* Se ajusta a su celda del grid */
+}
+
+.pelis .pelicula:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.poster-wrapper {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background-color: #0b0c10;
+}
+
+.poster-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.pelicula-titulo {
+    font-size: 16px;
+    text-align: center;
+    margin: 12px 10px 6px;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+.pelicula-meta {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 15px 15px;
+    font-size: 14px;
+    color: #45a29e;
+    font-weight: bold;
+}
+
+.pelicula-meta span:last-child {
+    color: #f1c40f;
+}
+
+/* MENSAJES DE ESTADO (Cargando / Sin resultados) */
+.mensaje {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 1.3rem;
+    color: #c5a3ff;
+    padding: 50px 0;
+}
+
+.mensaje.error {
+    color: #ff6b6b;
+}
+
+/* ==========================
+   PAGINACIÓN
+   ========================== */
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 30px 0 50px;
+}
+
+.paginacion button {
+    background-color: #1f2833;
+    color: #ffffff;
+    border: 2px solid #66fcf1;
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.paginacion button:hover:not(:disabled) {
+    background-color: #66fcf1;
+    color: #0b0c10;
+    box-shadow: 0 0 12px rgba(102, 252, 241, 0.6);
+}
+
+.paginacion button:disabled {
+    opacity: 0.4;
+    border-color: #888888;
+    cursor: not-allowed;
+}
+
+#num-pagina {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* ==========================
+   RESPONSIVIDAD
+   ========================== */
+@media (max-width: 1200px) {
+    .pelis {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    header input {
+        width: 90%;
+    }
+
+    .pelis {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .pelis {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 95%;
+        padding: 15px;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pelis {
+        grid-template-columns: 1fr;
+    }
+}

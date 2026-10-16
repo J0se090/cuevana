@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinecalidad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="descargar.png" alt="Logo Cinecalidad">
+
+        <input 
+            type="text" 
+            id="buscador" 
+            placeholder="Buscar película..."
+        >
+    </header>
+
+    <main>
+        <section>
+            <h1>Películas</h1>
+
+            <!-- Contenedor dinámico de tarjetas -->
+            <div class="pelis" id="contenedor-pelis"></div>
+
+            <!-- Controles de Paginación -->e\
+            <div class="paginacion">
+                <button id="btn-anterior" disabled>Anteerior</button>
+                <span id="num-pagina">Página 1</span>
+                <button id="btn-siguiente">Siguiente</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="indes.js"></script>
+
+</body>
+
+</html>
